@@ -2,6 +2,7 @@ package com.github.kr328.clash.core.database
 
 import androidx.room3.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import kotlin.time.Clock
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCObjectVar
@@ -20,10 +21,9 @@ fun openDatabase(): Database =
     .setDriver(BundledSQLiteDriver())
     .build()
 
-@OptIn(kotlin.time.ExperimentalTime::class)
-actual fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
+actual fun currentTimeMillis(): Long = Clock.System.now().toEpochMilliseconds()
 
-@OptIn(BetaInteropApi::class, ExperimentalForeignApi::class)
+@OptIn(ExperimentalForeignApi::class)
 private fun documentDirectory(): String = memScoped {
   val error = alloc<ObjCObjectVar<NSError?>>()
   val directory =
