@@ -1,4 +1,4 @@
-package com.github.kr328.clash.service.data
+package com.github.kr328.clash.core.database
 
 import androidx.room3.Dao
 import androidx.room3.Insert

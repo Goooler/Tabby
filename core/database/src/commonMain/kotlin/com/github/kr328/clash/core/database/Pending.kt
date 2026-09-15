@@ -1,4 +1,4 @@
-package com.github.kr328.clash.service.data
+package com.github.kr328.clash.core.database
 
 import androidx.room3.Entity
 import androidx.room3.PrimaryKey
@@ -16,6 +16,6 @@ data class Pending(
   val download: Long,
   val total: Long,
   val expire: Long,
-  val createdAt: Long = System.currentTimeMillis(),
+  val createdAt: Long = currentTimeMillis(),
   val ageSecretKey: String? = null,
 )

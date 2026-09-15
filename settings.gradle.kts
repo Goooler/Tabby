@@ -53,7 +53,7 @@ include(
   ":core",
   ":core:model",
   ":service",
-  ":service:database",
+  ":core:database",
   ":service:remote",
   ":common",
   ":glue",

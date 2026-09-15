@@ -1,13 +1,7 @@
-package com.github.kr328.clash.service.data
+package com.github.kr328.clash.core.database
 
-fun ImportedDao(): ImportedDao {
-  return Database.database.importedDao()
-}
+fun ImportedDao(): ImportedDao = DatabaseProvider.requireDatabase().importedDao()
 
-fun PendingDao(): PendingDao {
-  return Database.database.pendingDao()
-}
+fun PendingDao(): PendingDao = DatabaseProvider.requireDatabase().pendingDao()
 
-fun SelectionDao(): SelectionDao {
-  return Database.database.selectionProxyDao()
-}
+fun SelectionDao(): SelectionDao = DatabaseProvider.requireDatabase().selectionProxyDao()
