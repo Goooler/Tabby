@@ -3,7 +3,6 @@ package com.github.kr328.clash.core.database
 import androidx.room3.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import kotlin.time.Clock
-import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCObjectVar
 import kotlinx.cinterop.alloc
