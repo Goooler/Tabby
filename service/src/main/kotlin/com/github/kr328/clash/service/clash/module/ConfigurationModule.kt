@@ -5,9 +5,9 @@ import co.touchlab.kermit.Logger
 import com.github.kr328.clash.common.constants.Intents
 import com.github.kr328.clash.common.util.getSerializableCompat
 import com.github.kr328.clash.core.Clash
+import com.github.kr328.clash.core.database.ImportedDao
+import com.github.kr328.clash.core.database.SelectionDao
 import com.github.kr328.clash.service.StatusProvider
-import com.github.kr328.clash.service.data.ImportedDao
-import com.github.kr328.clash.service.data.SelectionDao
 import com.github.kr328.clash.service.store.ServiceStore
 import com.github.kr328.clash.service.util.importedDir
 import com.github.kr328.clash.service.util.sendProfileLoaded

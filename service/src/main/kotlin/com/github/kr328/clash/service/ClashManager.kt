@@ -3,6 +3,8 @@ package com.github.kr328.clash.service
 import android.content.Context
 import co.touchlab.kermit.Logger
 import com.github.kr328.clash.core.Clash
+import com.github.kr328.clash.core.database.Selection
+import com.github.kr328.clash.core.database.SelectionDao
 import com.github.kr328.clash.core.model.ConfigurationOverride
 import com.github.kr328.clash.core.model.LogMessage
 import com.github.kr328.clash.core.model.Provider
@@ -12,8 +14,6 @@ import com.github.kr328.clash.core.model.ProxySort
 import com.github.kr328.clash.core.model.Traffic
 import com.github.kr328.clash.core.model.TunnelState
 import com.github.kr328.clash.core.model.UiConfiguration
-import com.github.kr328.clash.service.data.Selection
-import com.github.kr328.clash.service.data.SelectionDao
 import com.github.kr328.clash.service.remote.IClashManager
 import com.github.kr328.clash.service.remote.ILogObserver
 import com.github.kr328.clash.service.store.ServiceStore

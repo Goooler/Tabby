@@ -3,11 +3,11 @@ package com.github.kr328.clash.service.document
 import android.content.Context
 import android.provider.DocumentsContract
 import com.github.kr328.clash.common.R as CommonR
+import com.github.kr328.clash.core.database.ImportedDao
+import com.github.kr328.clash.core.database.Pending
+import com.github.kr328.clash.core.database.PendingDao
 import com.github.kr328.clash.core.model.Profile
 import com.github.kr328.clash.service.R
-import com.github.kr328.clash.service.data.ImportedDao
-import com.github.kr328.clash.service.data.Pending
-import com.github.kr328.clash.service.data.PendingDao
 import com.github.kr328.clash.service.util.importedDir
 import com.github.kr328.clash.service.util.pendingDir
 import java.io.FileNotFoundException
