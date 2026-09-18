@@ -40,6 +40,7 @@ object DatabaseProvider {
     checkNotNull(database) { "DatabaseProvider is not initialized" }
 }
 
+// TODO: https://issuetracker.google.com/issues/525093264
 object RoomTypeConverters {
   @ColumnTypeConverter fun fromUUID(uuid: Uuid): String = uuid.toString()
 
