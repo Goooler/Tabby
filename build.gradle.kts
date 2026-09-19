@@ -22,6 +22,7 @@ plugins {
   alias(libs.plugins.ksp) apply false
   alias(libs.plugins.golang) apply false
   alias(libs.plugins.spotless) apply false
+  alias(libs.plugins.r8booster) apply false
 }
 
 allprojects {

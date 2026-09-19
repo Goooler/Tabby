@@ -8,6 +8,7 @@ plugins {
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.jb.compose)
   alias(libs.plugins.download)
+  alias(libs.plugins.r8booster)
 }
 
 android {
