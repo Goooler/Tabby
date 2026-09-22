@@ -7,7 +7,7 @@ kaidl = "0.2.0"
 room = "3.0.3"
 ktor = "3.6.0"
 jvmTarget = "21"
-cmp = "1.12.0"
+cmp = "1.12.1"
 koin = "4.2.2"
 
 [libraries]
