@@ -5,6 +5,7 @@ kotlin = "2.4.20"
 lifecycle = "2.11.0"
 kaidl = "0.2.0"
 room = "3.0.3"
+sqlite = "2.7.0"
 ktor = "3.6.0"
 jvmTarget = "21"
 cmp = "1.12.1"
@@ -34,6 +35,8 @@ jetbrains-androidx-navigation3-ui = "org.jetbrains.androidx.navigation3:navigati
 androidx-core = "androidx.core:core:1.19.1"
 androidx-room-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room" }
 androidx-room-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room" }
+androidx-room-sqlite-wrapper = { module = "androidx.room3:room3-sqlite-wrapper", version.ref = "room" }
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
 kaidl-compiler = { module = "io.github.goooler.kaidl:kaidl-compiler", version.ref = "kaidl" }
 kaidl-runtime = { module = "io.github.goooler.kaidl:kaidl-runtime", version.ref = "kaidl" }
@@ -69,6 +72,7 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jb-compose = { id = "org.jetbrains.compose", version.ref = "cmp" }
 ksp = "com.google.devtools.ksp:2.3.12"
+room = { id = "androidx.room3", version.ref = "room" }
 golang = "io.github.goooler.golang:0.3.0"
 download = "de.undercouch.download:5.7.0"
 spotless = "com.diffplug.spotless:8.10.2"

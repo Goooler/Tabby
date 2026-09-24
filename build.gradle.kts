@@ -7,7 +7,6 @@ import org.jetbrains.compose.resources.ResourcesExtension
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -20,6 +19,7 @@ plugins {
   alias(libs.plugins.kotlin.serialization) apply false
   alias(libs.plugins.jb.compose) apply false
   alias(libs.plugins.ksp) apply false
+  alias(libs.plugins.room) apply false
   alias(libs.plugins.golang) apply false
   alias(libs.plugins.spotless) apply false
 }
@@ -69,9 +69,17 @@ allprojects {
         compilerOptions.jvmTarget = JvmTarget.fromTarget(libs.versions.jvmTarget.get())
         androidResources.enable = true
       }
+    }
 
-      extensions.configure<NamedDomainObjectContainer<KotlinSourceSet>> {
-        commonMain.dependencies {
+    if (project.path == ":common" || project.path.startsWith(":ui")) {
+      extensions.configure<KotlinMultiplatformExtension> {
+        compilerOptions.optIn.addAll(
+          "androidx.compose.foundation.ExperimentalFoundationApi",
+          "androidx.compose.material3.ExperimentalMaterial3Api",
+        )
+      }
+      extensions.configure<KotlinMultiplatformExtension> {
+        sourceSets.getByName("commonMain").dependencies {
           implementation(libs.jetbrains.compose.ui)
           implementation(libs.jetbrains.compose.uiTooling)
           implementation(libs.jetbrains.compose.uiToolingPreview)
@@ -87,22 +95,17 @@ allprojects {
         }
       }
 
-      compilerOptions.optIn.addAll(
-        "androidx.compose.foundation.ExperimentalFoundationApi",
-        "androidx.compose.material3.ExperimentalMaterial3Api",
-      )
-    }
+      plugins.apply(libs.plugins.kotlin.compose.get().pluginId)
+      extensions.configure<ComposeCompilerGradlePluginExtension> {
+        stabilityConfigurationFiles.add(rootProject.layout.projectDirectory.file("stability.conf"))
+      }
 
-    plugins.apply(libs.plugins.kotlin.compose.get().pluginId)
-    extensions.configure<ComposeCompilerGradlePluginExtension> {
-      stabilityConfigurationFiles.add(rootProject.layout.projectDirectory.file("stability.conf"))
-    }
-
-    plugins.apply(libs.plugins.jb.compose.get().pluginId)
-    extensions.configure<ComposeExtension> {
-      extensions.configure<ResourcesExtension> {
-        packageOfResClass = "com.github.kr328.clash.${project.name}"
-        generateResClass = always
+      plugins.apply(libs.plugins.jb.compose.get().pluginId)
+      extensions.configure<ComposeExtension> {
+        extensions.configure<ResourcesExtension> {
+          packageOfResClass = "com.github.kr328.clash.${project.name}"
+          generateResClass = always
+        }
       }
     }
   }

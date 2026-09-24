@@ -17,7 +17,7 @@ import com.github.kr328.clash.common.id.UndefinedIds
 import com.github.kr328.clash.common.util.mainIntent
 import com.github.kr328.clash.common.util.setUUID
 import com.github.kr328.clash.common.util.uuid
-import com.github.kr328.clash.service.data.ImportedDao
+import com.github.kr328.clash.core.database.ImportedDao
 import com.github.kr328.clash.service.util.sendProfileUpdateCompleted
 import com.github.kr328.clash.service.util.sendProfileUpdateFailed
 import kotlin.time.Duration.Companion.seconds
