@@ -71,4 +71,4 @@ jb-compose = { id = "org.jetbrains.compose", version.ref = "cmp" }
 ksp = "com.google.devtools.ksp:2.3.12"
 golang = "io.github.goooler.golang:0.3.0"
 download = "de.undercouch.download:5.7.0"
-spotless = "com.diffplug.spotless:8.10.2"
+spotless = "com.diffplug.spotless:8.10.3"
