@@ -1,12 +1,13 @@
 package com.github.kr328.clash.service.remote
 
+import com.github.kr328.clash.core.model.Profile
 import com.github.kr328.kaidl.BinderInterface
 import kotlin.uuid.Uuid
 
 @BinderInterface
 interface IProfileManager {
   suspend fun create(
-    type: String,
+    type: Profile.Type,
     name: String,
     source: String = "",
     ageSecretKey: String? = null,

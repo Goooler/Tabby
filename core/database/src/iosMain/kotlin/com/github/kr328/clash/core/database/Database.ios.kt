@@ -33,5 +33,5 @@ private fun documentDirectory(): String = memScoped {
       false,
       error.ptr,
     )
-  requireNotNull(directory?.path)
+  checkNotNull(directory?.path)
 }

@@ -13,7 +13,7 @@ class ProfileClient(private val remote: IProfileManager) {
     name: String,
     source: String = "",
     ageSecretKey: String? = null,
-  ): Uuid = remote.create(type.name, name, source, ageSecretKey)
+  ): Uuid = remote.create(type, name, source, ageSecretKey)
 
   suspend fun clone(uuid: Uuid): Uuid = remote.clone(uuid)
 

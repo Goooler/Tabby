@@ -4,7 +4,6 @@ import android.content.Context
 import com.github.kr328.clash.core.database.ImportedDao
 import com.github.kr328.clash.core.database.Pending
 import com.github.kr328.clash.core.database.PendingDao
-import com.github.kr328.clash.core.database.initializeDatabase
 import com.github.kr328.clash.core.model.Profile
 import com.github.kr328.clash.service.remote.IFetchObserver
 import com.github.kr328.clash.service.remote.IProfileManager
@@ -28,14 +27,12 @@ class ProfileManager(private val context: Context) :
 
   init {
     launch {
-      initializeDatabase(context)
-
       ProfileReceiver.rescheduleAll(context)
     }
   }
 
   override suspend fun create(
-    type: String,
+    type: Profile.Type,
     name: String,
     source: String,
     ageSecretKey: String?,
@@ -45,7 +42,7 @@ class ProfileManager(private val context: Context) :
       Pending(
         uuid = uuid,
         name = name,
-        type = Profile.Type.valueOf(type),
+        type = type,
         source = source,
         interval = 0,
         upload = 0,

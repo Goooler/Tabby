@@ -29,15 +29,15 @@ expect object DatabaseConstructor : RoomDatabaseConstructor<Database> {
 }
 
 object DatabaseProvider {
-  private var database: Database? = null
+  private var database: Lazy<Database>? = null
 
-  fun initialize(database: Database) {
+  fun initialize(factory: () -> Database) {
     check(this.database == null) { "DatabaseProvider is already initialized" }
-    this.database = database
+    this.database = lazy(factory)
   }
 
   internal fun requireDatabase(): Database =
-    checkNotNull(database) { "DatabaseProvider is not initialized" }
+    checkNotNull(database) { "DatabaseProvider is not initialized" }.value
 }
 
 // TODO: https://issuetracker.google.com/issues/525093264

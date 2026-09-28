@@ -3,6 +3,7 @@ package com.github.kr328.clash.core.database
 import android.content.Context
 import androidx.room3.Room
 import androidx.room3.migration.Migration
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import androidx.sqlite.execSQL
 
 private const val DATABASE_NAME = "profiles"
@@ -14,7 +15,8 @@ private val migration1To2 =
   }
 
 fun initializeDatabase(context: Context) {
-  DatabaseProvider.initialize(openDatabase(context))
+  val applicationContext = context.applicationContext
+  DatabaseProvider.initialize { openDatabase(applicationContext) }
 }
 
 fun openDatabase(context: Context): Database {
@@ -22,6 +24,7 @@ fun openDatabase(context: Context): Database {
   val databaseFile = applicationContext.getDatabasePath(DATABASE_NAME)
   return Room.databaseBuilder<Database>(applicationContext, databaseFile.absolutePath)
     .addMigrations(migration1To2)
+    .setDriver(BundledSQLiteDriver())
     .build()
 }
 

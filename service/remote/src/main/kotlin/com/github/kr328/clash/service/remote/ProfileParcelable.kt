@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class ProfileParcelable(
   val uuid: Uuid,
   val name: String,
-  val type: String,
+  val type: Profile.Type,
   val source: String,
   val active: Boolean,
   val interval: Long,
@@ -27,7 +27,7 @@ fun Profile.toParcelable(): ProfileParcelable =
   ProfileParcelable(
     uuid,
     name,
-    type.name,
+    type,
     source,
     active,
     interval,
@@ -45,7 +45,7 @@ fun ProfileParcelable.toProfile(): Profile =
   Profile(
     uuid,
     name,
-    Profile.Type.valueOf(type),
+    type,
     source,
     active,
     interval,
