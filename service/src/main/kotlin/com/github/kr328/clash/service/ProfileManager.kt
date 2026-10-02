@@ -1,13 +1,14 @@
 package com.github.kr328.clash.service
 
 import android.content.Context
+import com.github.kr328.clash.core.database.ImportedDao
+import com.github.kr328.clash.core.database.Pending
+import com.github.kr328.clash.core.database.PendingDao
 import com.github.kr328.clash.core.model.Profile
-import com.github.kr328.clash.service.data.Database
-import com.github.kr328.clash.service.data.ImportedDao
-import com.github.kr328.clash.service.data.Pending
-import com.github.kr328.clash.service.data.PendingDao
 import com.github.kr328.clash.service.remote.IFetchObserver
 import com.github.kr328.clash.service.remote.IProfileManager
+import com.github.kr328.clash.service.remote.ProfileParcelable
+import com.github.kr328.clash.service.remote.toParcelable
 import com.github.kr328.clash.service.store.ServiceStore
 import com.github.kr328.clash.service.util.directoryLastModified
 import com.github.kr328.clash.service.util.generateProfileUUID
@@ -26,8 +27,6 @@ class ProfileManager(private val context: Context) :
 
   init {
     launch {
-      Database.database // .init
-
       ProfileReceiver.rescheduleAll(context)
     }
   }
@@ -160,30 +159,30 @@ class ProfileManager(private val context: Context) :
     ProfileProcessor.delete(context, uuid)
   }
 
-  override suspend fun queryByUUID(uuid: Uuid): Profile? {
-    return resolveProfile(uuid)
+  override suspend fun queryByUUID(uuid: Uuid): ProfileParcelable? {
+    return resolveProfile(uuid)?.toParcelable()
   }
 
-  override suspend fun queryAll(): List<Profile> {
+  override suspend fun queryAll(): List<ProfileParcelable> {
     val uuids =
       withContext(Dispatchers.IO) {
         (ImportedDao().queryAllUUIDs() + PendingDao().queryAllUUIDs()).distinct()
       }
 
-    return uuids.mapNotNull { resolveProfile(it) }
+    return uuids.mapNotNull { resolveProfile(it)?.toParcelable() }
   }
 
-  override suspend fun queryActive(): Profile? {
+  override suspend fun queryActive(): ProfileParcelable? {
     val active = store.activeProfile ?: return null
 
     return if (ImportedDao().exists(active)) {
-      resolveProfile(active)
+      resolveProfile(active)?.toParcelable()
     } else {
       null
     }
   }
 
-  override suspend fun setActive(profile: Profile) {
+  override suspend fun setActive(profile: ProfileParcelable) {
     ProfileProcessor.active(context, profile.uuid)
   }
 

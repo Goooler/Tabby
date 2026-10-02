@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.core.net.toUri
 import co.touchlab.kermit.Logger
 import com.github.kr328.clash.core.Clash
+import com.github.kr328.clash.core.database.Imported
+import com.github.kr328.clash.core.database.ImportedDao
+import com.github.kr328.clash.core.database.Pending
+import com.github.kr328.clash.core.database.PendingDao
 import com.github.kr328.clash.core.model.FetchStatus
 import com.github.kr328.clash.core.model.Profile
-import com.github.kr328.clash.service.data.Imported
-import com.github.kr328.clash.service.data.ImportedDao
-import com.github.kr328.clash.service.data.Pending
-import com.github.kr328.clash.service.data.PendingDao
 import com.github.kr328.clash.service.remote.IFetchObserver
 import com.github.kr328.clash.service.store.ServiceStore
 import com.github.kr328.clash.service.util.importedDir

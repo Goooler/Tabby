@@ -31,11 +31,11 @@ interface IProfileManager {
 
   suspend fun update(uuid: Uuid)
 
-  suspend fun queryByUUID(uuid: Uuid): Profile?
+  suspend fun queryByUUID(uuid: Uuid): ProfileParcelable?
 
-  suspend fun queryAll(): List<Profile>
+  suspend fun queryAll(): List<ProfileParcelable>
 
-  suspend fun queryActive(): Profile?
+  suspend fun queryActive(): ProfileParcelable?
 
-  suspend fun setActive(profile: Profile)
+  suspend fun setActive(profile: ProfileParcelable)
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import co.touchlab.kermit.Logger
 import com.github.kr328.clash.app.di.appModule
+import com.github.kr328.clash.core.database.initializeDatabase
 import com.github.kr328.clash.crash.di.crashModule
 import com.github.kr328.clash.glue.remote.Remote
 import com.github.kr328.clash.glue.util.clashDir
@@ -29,9 +30,13 @@ class MainApplication : Application() {
 
     Logger.setTag("Tabby")
 
+    val processName = getProcessName()
+    if (processName != packageName) {
+      initializeDatabase(this)
+    }
+
     koin()
 
-    val processName = getProcessName()
     extractGeoFiles()
 
     Logger.d("Process $processName started")
