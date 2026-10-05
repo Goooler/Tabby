@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-  api(projects.service.database)
+  api(projects.core.database)
   api(projects.service.remote)
 
   implementation(projects.core.model)
