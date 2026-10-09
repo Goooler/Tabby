@@ -238,7 +238,7 @@ object Clash {
           override fun received(jsonPayload: String) {
             trySend(json.decodeFromString(jsonPayload))
           }
-        }
+        },
       )
     }
   }

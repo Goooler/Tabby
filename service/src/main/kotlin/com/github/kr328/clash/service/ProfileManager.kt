@@ -121,7 +121,7 @@ class ProfileManager(private val context: Context) :
             download = 0,
             expire = 0,
             ageSecretKey = ageSecretKey,
-          )
+          ),
         )
     } else {
       val newPending =

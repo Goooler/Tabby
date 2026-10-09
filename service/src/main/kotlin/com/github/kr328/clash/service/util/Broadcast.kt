@@ -53,6 +53,6 @@ fun Context.sendClashStarted() {
 
 fun Context.sendClashStopped(reason: String?) {
   sendBroadcastSelf(
-    Intent(Intents.ACTION_CLASH_STOPPED).putExtra(Intents.EXTRA_STOP_REASON, reason)
+    Intent(Intents.ACTION_CLASH_STOPPED).putExtra(Intents.EXTRA_STOP_REASON, reason),
   )
 }

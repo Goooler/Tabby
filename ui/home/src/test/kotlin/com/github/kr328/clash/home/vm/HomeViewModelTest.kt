@@ -35,7 +35,7 @@ class HomeViewModelTest : KoinComponent {
         module {
           single<HomeViewModel.Dependencies> { dependencies }
           single { HomeViewModel(get()) }
-        }
+        },
       )
     }
     viewModel = get()

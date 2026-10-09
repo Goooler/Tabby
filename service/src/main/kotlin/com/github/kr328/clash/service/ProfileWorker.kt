@@ -121,7 +121,7 @@ class ProfileWorker : BaseService() {
             )
             .setName(getString(R.string.profile_process_result))
             .build(),
-        )
+        ),
       )
   }
 

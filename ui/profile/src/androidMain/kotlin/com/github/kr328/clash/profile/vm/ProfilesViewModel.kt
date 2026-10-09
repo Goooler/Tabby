@@ -80,7 +80,7 @@ internal class ProfilesViewModel(private val application: Application) : ViewMod
           EventState.ShowEditableMessage(
             getString(Res.string.active_unsaved_tips),
             profile.uuid,
-          )
+          ),
         )
       }
     }
@@ -149,7 +149,7 @@ internal class ProfilesViewModel(private val application: Application) : ViewMod
   private suspend fun showProfileUpdateCompleted(uuid: Uuid) {
     val name = withProfile { queryByUUID(uuid)?.name.orEmpty() }
     eventState.tryEmit(
-      EventState.ShowMessage(getString(Res.string.toast_profile_updated_complete, name))
+      EventState.ShowMessage(getString(Res.string.toast_profile_updated_complete, name)),
     )
   }
 
@@ -160,7 +160,7 @@ internal class ProfilesViewModel(private val application: Application) : ViewMod
       EventState.ShowEditableMessage(
         getString(Res.string.toast_profile_updated_failed, name, displayReason),
         uuid,
-      )
+      ),
     )
   }
 

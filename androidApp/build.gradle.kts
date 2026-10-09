@@ -103,7 +103,7 @@ val downloadGeoFiles =
         "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb",
         "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
         "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb",
-      )
+      ),
     )
     dest("src/main/assets")
     onlyIfModified(true)

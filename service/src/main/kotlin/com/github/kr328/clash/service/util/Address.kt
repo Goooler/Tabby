@@ -21,8 +21,8 @@ private fun numericToTextFormat(address: Inet6Address): String {
   for (i in 0 until INADDRSZ / INT16SZ) {
     sb.append(
       Integer.toHexString(
-        src[i shl 1].toInt() shl 8 and 0xff00 or (src[(i shl 1) + 1].toInt() and 0xff)
-      )
+        src[i shl 1].toInt() shl 8 and 0xff00 or (src[(i shl 1) + 1].toInt() and 0xff),
+      ),
     )
     if (i < INADDRSZ / INT16SZ - 1) {
       sb.append(":")

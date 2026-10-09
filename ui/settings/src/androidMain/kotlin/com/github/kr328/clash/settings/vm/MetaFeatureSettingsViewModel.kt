@@ -121,8 +121,8 @@ internal class MetaFeatureSettingsViewModel(
     it.copy(
       sniffer =
         it.sniffer.copy(
-          sniff = it.sniffer.sniff.copy(http = it.sniffer.sniff.http.copy(ports = value))
-        )
+          sniff = it.sniffer.sniff.copy(http = it.sniffer.sniff.http.copy(ports = value)),
+        ),
     )
   }
 
@@ -131,8 +131,8 @@ internal class MetaFeatureSettingsViewModel(
       sniffer =
         it.sniffer.copy(
           sniff =
-            it.sniffer.sniff.copy(http = it.sniffer.sniff.http.copy(overrideDestination = value))
-        )
+            it.sniffer.sniff.copy(http = it.sniffer.sniff.http.copy(overrideDestination = value)),
+        ),
     )
   }
 
@@ -140,8 +140,8 @@ internal class MetaFeatureSettingsViewModel(
     it.copy(
       sniffer =
         it.sniffer.copy(
-          sniff = it.sniffer.sniff.copy(tls = it.sniffer.sniff.tls.copy(ports = value))
-        )
+          sniff = it.sniffer.sniff.copy(tls = it.sniffer.sniff.tls.copy(ports = value)),
+        ),
     )
   }
 
@@ -150,8 +150,8 @@ internal class MetaFeatureSettingsViewModel(
       sniffer =
         it.sniffer.copy(
           sniff =
-            it.sniffer.sniff.copy(tls = it.sniffer.sniff.tls.copy(overrideDestination = value))
-        )
+            it.sniffer.sniff.copy(tls = it.sniffer.sniff.tls.copy(overrideDestination = value)),
+        ),
     )
   }
 
@@ -159,8 +159,8 @@ internal class MetaFeatureSettingsViewModel(
     it.copy(
       sniffer =
         it.sniffer.copy(
-          sniff = it.sniffer.sniff.copy(quic = it.sniffer.sniff.quic.copy(ports = value))
-        )
+          sniff = it.sniffer.sniff.copy(quic = it.sniffer.sniff.quic.copy(ports = value)),
+        ),
     )
   }
 
@@ -169,8 +169,8 @@ internal class MetaFeatureSettingsViewModel(
       sniffer =
         it.sniffer.copy(
           sniff =
-            it.sniffer.sniff.copy(quic = it.sniffer.sniff.quic.copy(overrideDestination = value))
-        )
+            it.sniffer.sniff.copy(quic = it.sniffer.sniff.quic.copy(overrideDestination = value)),
+        ),
     )
   }
 

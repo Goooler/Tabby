@@ -655,7 +655,7 @@ private fun LazyListScope.overrideEditTextPreferenceItem(
       var inputText by
         remember(value) {
           mutableStateOf(
-            TextFieldValue(text = value.orEmpty(), selection = TextRange(value.orEmpty().length))
+            TextFieldValue(text = value.orEmpty(), selection = TextRange(value.orEmpty().length)),
           )
         }
       val focusRequester = remember { FocusRequester() }
@@ -689,10 +689,10 @@ private fun LazyListScope.overrideEditTextPreferenceItem(
                   portText(parsePort(inputText.text))
                 } else {
                   inputText.text
-                }
+                },
               )
               showDialog = false
-            }
+            },
           ) {
             Text(stringResource(CommonRes.string.ok))
           }
@@ -703,7 +703,7 @@ private fun LazyListScope.overrideEditTextPreferenceItem(
               onClick = {
                 onValueChange(null)
                 showDialog = false
-              }
+              },
             ) {
               Text(stringResource(CommonRes.string.reset))
             }

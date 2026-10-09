@@ -225,7 +225,7 @@ internal fun MetaFeatureSettingsScreen(
                   stringResource(
                     Res.string.geofile_unknown_db_format_message,
                     validExtensionsSummary,
-                  )
+                  ),
                 )
               },
               confirmButton = {
@@ -671,8 +671,8 @@ private fun AgeKeyHelperDialog(
     title = {
       Text(
         stringResource(
-          if (hybrid) Res.string.age_key_type_hybrid else Res.string.age_key_type_x25519
-        )
+          if (hybrid) Res.string.age_key_type_hybrid else Res.string.age_key_type_x25519,
+        ),
       )
     },
     text = {
@@ -703,7 +703,7 @@ private fun AgeKeyHelperDialog(
                   publicKey = it.publicKey
                 }
                 .onFailure { scope.launch { onShowMessage(genericError) } }
-            }
+            },
           ) {
             Text(stringResource(Res.string.age_key_generate))
           }
@@ -732,7 +732,7 @@ private fun AgeKeyHelperDialog(
               runCatching { Clash.toPublicKeys(secretKey).firstOrNull().orEmpty() }
                 .onSuccess { publicKey = it }
                 .onFailure { scope.launch { onShowMessage(genericError) } }
-            }
+            },
           ) {
             Text(stringResource(Res.string.age_key_to_public))
           }

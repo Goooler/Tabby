@@ -256,7 +256,7 @@ private fun ProxyContent(
           onClick = {
             scrollSelectedToTopRequestPage = pagerState?.currentPage ?: uiState.currentPage
             scrollSelectedToTopRequestVersion += 1
-          }
+          },
         ) {
           Icon(
             imageVector = TabbyIcons.BaselineCircleCenter,
@@ -280,7 +280,7 @@ private fun ProxyContent(
             val currentGridState =
               gridStates.getOrNull(validPagerState.currentPage) ?: return@FloatingActionButton
             scope.launch { currentGridState.animateScrollToItem(0) }
-          }
+          },
         ) {
           Icon(
             imageVector = TabbyIcons.BaselineArrowUp,
@@ -670,7 +670,7 @@ private fun ProxyContentPreview() {
               linkIndex = -1,
             ),
           ),
-      )
+      ),
     )
   }
 

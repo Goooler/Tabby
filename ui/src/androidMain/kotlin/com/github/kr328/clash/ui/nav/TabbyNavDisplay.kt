@@ -55,7 +55,7 @@ fun <T : Any> TabbyNavDisplay(
 
 @Composable
 inline fun rememberNavBackStackBuilder(
-  builderAction: MutableList<NavKey>.() -> Unit
+  builderAction: MutableList<NavKey>.() -> Unit,
 ): NavBackStack<NavKey> = rememberNavBackStack(*buildList(builderAction).toTypedArray())
 
 fun <T> MutableList<T>.addIfNotLast(element: T): Boolean {

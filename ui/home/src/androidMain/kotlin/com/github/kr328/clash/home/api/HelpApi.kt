@@ -27,7 +27,7 @@ class HelpApi(
       install(ContentNegotiation) {
         json(json = Json { ignoreUnknownKeys = true })
       }
-    }
+    },
 ) {
   suspend fun getLatestRelease(): String? {
     val response = client.get("repos/$TABBY_REPO/releases/latest")

@@ -198,7 +198,7 @@ internal class LogcatViewModel(private val application: Application) : ViewModel
                   }
                   runCatching {
                     continuation.resumeWithException(
-                      IllegalStateException("Logcat service returned a null binder")
+                      IllegalStateException("Logcat service returned a null binder"),
                     )
                   }
                     .onFailure {
@@ -280,7 +280,7 @@ internal class LogcatViewModel(private val application: Application) : ViewModel
                   isIndeterminate = true,
                   progress = 0,
                   max = messages.size,
-                )
+                ),
             )
           }
 
@@ -291,7 +291,7 @@ internal class LogcatViewModel(private val application: Application) : ViewModel
               uiState.update {
                 it.copy(
                   exportProgress =
-                    it.exportProgress.copy(isIndeterminate = false, progress = index + 1)
+                    it.exportProgress.copy(isIndeterminate = false, progress = index + 1),
                 )
               }
 

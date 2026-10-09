@@ -153,7 +153,7 @@ private fun ProviderItem(state: ProviderItemState, currentTime: Long, onUpdate: 
       Box(
         modifier =
           Modifier.size(width = 1.dp, height = itemMinHeight)
-            .background(MaterialTheme.colorScheme.outline)
+            .background(MaterialTheme.colorScheme.outline),
       )
       IconButton(
         onClick = onUpdate,

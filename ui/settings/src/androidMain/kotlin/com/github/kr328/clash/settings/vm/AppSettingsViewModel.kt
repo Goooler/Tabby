@@ -33,7 +33,7 @@ internal class AppSettingsViewModel(
           hideAppIcon = uiStore.hideAppIcon,
           hideFromRecents = uiStore.hideFromRecents,
           dynamicNotification = serviceStore.dynamicNotification,
-        )
+        ),
       )
 
   fun updateAutoRestart(value: Boolean) {
