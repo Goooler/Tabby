@@ -33,7 +33,7 @@ class StaticNotificationModule(service: Service) : Module<Unit>(service) {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
           },
           pendingIntentFlags(PendingIntent.FLAG_UPDATE_CURRENT),
-        )
+        ),
       )
 
   override suspend fun run() {
@@ -63,7 +63,7 @@ class StaticNotificationModule(service: Service) : Module<Unit>(service) {
         .createNotificationChannel(
           NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_LOW)
             .setName(service.getText(R.string.tabby_service_status_channel))
-            .build()
+            .build(),
         )
     }
 

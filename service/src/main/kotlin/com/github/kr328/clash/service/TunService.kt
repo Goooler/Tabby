@@ -189,7 +189,7 @@ class TunService : VpnService(), CoroutineScope by CoroutineScope(Dispatchers.De
               addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             },
             pendingIntentFlags(PendingIntent.FLAG_UPDATE_CURRENT),
-          )
+          ),
         )
 
         // Metered
@@ -206,7 +206,7 @@ class TunService : VpnService(), CoroutineScope by CoroutineScope(Dispatchers.De
                 it.port,
                 HTTP_PROXY_BLACK_LIST +
                   if (store.bypassPrivateNetwork) HTTP_PROXY_LOCAL_LIST else emptyList(),
-              )
+              ),
             )
           }
         }

@@ -57,7 +57,7 @@ junit = "junit:junit:4.13.2"
 assertk = "com.willowtreeapps.assertk:assertk:0.28.1"
 kermit = "co.touchlab:kermit:2.2.0"
 # Dummy to get renovate updates, the version is used in rootProject build.gradle with spotless.
-ktfmt = "com.facebook:ktfmt:0.64"
+ktfmt = "org.jetbrains.kotlinx:ktfmt:0.65"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -71,4 +71,4 @@ jb-compose = { id = "org.jetbrains.compose", version.ref = "cmp" }
 ksp = "com.google.devtools.ksp:2.3.12"
 golang = "io.github.goooler.golang:0.3.0"
 download = "de.undercouch.download:5.7.0"
-spotless = "com.diffplug.spotless:8.10.3"
+spotless = "com.diffplug.spotless:8.10.4"

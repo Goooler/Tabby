@@ -181,7 +181,7 @@ private fun HomeContent(
         Modifier.fillMaxSize()
           .padding(innerPadding)
           .padding(horizontal = 30.dp)
-          .verticalScroll(rememberScrollState())
+          .verticalScroll(rememberScrollState()),
     ) {
       Row(
         modifier = Modifier.fillMaxWidth().height(90.dp),

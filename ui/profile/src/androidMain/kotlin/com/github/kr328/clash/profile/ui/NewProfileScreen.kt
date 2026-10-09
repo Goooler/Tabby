@@ -88,7 +88,7 @@ internal fun NewProfileScreen(
         is LaunchProperties -> onProperties(event.uuid)
         is OpenAppSettings -> {
           context.startActivity(
-            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(event.uri)
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(event.uri),
           )
         }
         is ShowMessage -> {

@@ -56,7 +56,7 @@ object ProfileProcessor {
           if (PendingDao().queryByUUID(snapshot.uuid) == snapshot) {
             context.importedDir.resolve(snapshot.uuid.toString()).deleteRecursively()
             context.processingDir.copyRecursively(
-              context.importedDir.resolve(snapshot.uuid.toString())
+              context.importedDir.resolve(snapshot.uuid.toString()),
             )
 
             val old = ImportedDao().queryByUUID(snapshot.uuid)
@@ -122,7 +122,7 @@ object ProfileProcessor {
           if (imported != null) {
             context.importedDir.resolve(snapshot.uuid.toString()).deleteRecursively()
             context.processingDir.copyRecursively(
-              context.importedDir.resolve(snapshot.uuid.toString())
+              context.importedDir.resolve(snapshot.uuid.toString()),
             )
 
             if (subscriptionInfo != null && subscriptionInfo.subTotal > 0) {
@@ -133,7 +133,7 @@ object ProfileProcessor {
                     download = subscriptionInfo.subDownload,
                     total = subscriptionInfo.subTotal,
                     expire = subscriptionInfo.subExpire,
-                  )
+                  ),
                 )
             }
 

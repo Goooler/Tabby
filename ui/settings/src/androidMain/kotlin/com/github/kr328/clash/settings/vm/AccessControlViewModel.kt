@@ -50,7 +50,7 @@ internal class AccessControlViewModel(
           sort = uiStore.accessControlSort,
           reverse = uiStore.accessControlReverse,
           showSystemApps = uiStore.accessControlSystemApp,
-        )
+        ),
       )
 
   val clashRunning: StateFlow<Boolean> = Remote.broadcasts.clashRunningFlow

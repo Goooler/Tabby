@@ -322,7 +322,7 @@ private fun ProfileItem(
 
       Box(
         modifier =
-          Modifier.width(1.dp).height(itemMinHeight).background(MaterialTheme.colorScheme.outline)
+          Modifier.width(1.dp).height(itemMinHeight).background(MaterialTheme.colorScheme.outline),
       )
 
       IconButton(onClick = onMenuClick, modifier = Modifier.padding(horizontal = 4.dp)) {

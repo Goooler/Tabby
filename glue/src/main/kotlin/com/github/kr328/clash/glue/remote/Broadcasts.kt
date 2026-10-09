@@ -81,14 +81,14 @@ class Broadcasts(private val context: Application) {
           }
           Intents.ACTION_PROFILE_UPDATE_COMPLETED ->
             event.tryEmit(
-              Event.ProfileUpdateCompleted(intent.getSerializableCompat(Intents.EXTRA_UUID))
+              Event.ProfileUpdateCompleted(intent.getSerializableCompat(Intents.EXTRA_UUID)),
             )
           Intents.ACTION_PROFILE_UPDATE_FAILED ->
             event.tryEmit(
               Event.ProfileUpdateFailed(
                 intent.getSerializableCompat(Intents.EXTRA_UUID),
                 intent.getStringExtra(Intents.EXTRA_FAIL_REASON),
-              )
+              ),
             )
           Intents.ACTION_PROFILE_LOADED -> {
             clashRunning = true

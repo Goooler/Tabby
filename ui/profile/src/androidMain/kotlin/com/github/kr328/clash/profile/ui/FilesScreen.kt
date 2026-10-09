@@ -126,7 +126,7 @@ internal fun FilesScreen(
         }
         is OpenFile -> {
           openFileLauncher.launch(
-            Intent(Intent.ACTION_VIEW).setDataAndType(event.uri, "text/plain").grantPermissions()
+            Intent(Intent.ACTION_VIEW).setDataAndType(event.uri, "text/plain").grantPermissions(),
           )
         }
         is RequestImport -> {
@@ -303,7 +303,7 @@ private fun TextInputDialog(
 
   var inputText by remember {
     mutableStateOf(
-      TextFieldValue(text = initialText, selection = TextRange(initialValue?.length ?: 0))
+      TextFieldValue(text = initialText, selection = TextRange(initialValue?.length ?: 0)),
     )
   }
   var inputError by remember { mutableStateOf(if (!validator(initialText)) error else null) }

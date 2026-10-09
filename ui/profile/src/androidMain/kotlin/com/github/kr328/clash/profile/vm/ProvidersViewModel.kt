@@ -78,8 +78,8 @@ internal class ProvidersViewModel(private val application: Application) : ViewMo
               Res.string.format_update_provider_failure,
               provider.name,
               errorMessage,
-            )
-          )
+            ),
+          ),
         )
       }
     }
@@ -100,7 +100,7 @@ internal class ProvidersViewModel(private val application: Application) : ViewMo
         providers =
           current.providers.map { state ->
             if (providerKey(state.provider) == key) transform(state) else state
-          }
+          },
       )
     }
   }

@@ -32,7 +32,7 @@ internal class NetworkSettingsViewModel(
           systemProxy = serviceStore.systemProxy,
           tunStackMode = serviceStore.tunStackMode,
           accessControlMode = serviceStore.accessControlMode,
-        )
+        ),
       )
 
   fun updateEnableVpn(value: Boolean) {

@@ -9,7 +9,7 @@ fun Traffic.trafficDownload(): String = scaledToApproxBytes(downloadScaled).bina
 
 fun Traffic.trafficTotal(): String =
   centiBytesToApproxBytes(
-      normalizeScaledToCentiBytes(uploadScaled) + normalizeScaledToCentiBytes(downloadScaled)
+      normalizeScaledToCentiBytes(uploadScaled) + normalizeScaledToCentiBytes(downloadScaled),
     )
     .binaryBytes
     .toString()

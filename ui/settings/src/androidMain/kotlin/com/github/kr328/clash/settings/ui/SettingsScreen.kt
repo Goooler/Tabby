@@ -49,7 +49,7 @@ internal fun SettingsScreen(
   TabbyScaffold(title = stringResource(CommonRes.string.settings), modifier = modifier) {
     innerPadding ->
     Column(
-      modifier = Modifier.fillMaxSize().padding(innerPadding).verticalScroll(rememberScrollState())
+      modifier = Modifier.fillMaxSize().padding(innerPadding).verticalScroll(rememberScrollState()),
     ) {
       SettingsEntryItem(
         icon = TabbyIcons.BaselineSettings,

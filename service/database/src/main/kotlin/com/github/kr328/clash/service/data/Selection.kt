@@ -14,7 +14,7 @@ import kotlin.uuid.Uuid
         parentColumns = ["uuid"],
         onDelete = ForeignKey.CASCADE,
         onUpdate = ForeignKey.CASCADE,
-      )
+      ),
     ],
   primaryKeys = ["uuid", "proxy"],
 )

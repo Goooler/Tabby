@@ -73,7 +73,7 @@ internal fun LogsScreen(
           onClick = {
             showDeleteAllDialog = false
             viewModel.deleteAll()
-          }
+          },
         ) {
           Text(text = stringResource(CommonRes.string.ok))
         }

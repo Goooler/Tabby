@@ -16,7 +16,7 @@ internal class AppCrashedViewModel(private val application: Application) : ViewM
     val log = runCatching {
       val packageInfo = application.packageManager.getPackageInfo(application.packageName, 0)
       Logger.i(
-        "App version: versionName = ${packageInfo.versionName} versionCode = ${packageInfo.longVersionCode}"
+        "App version: versionName = ${packageInfo.versionName} versionCode = ${packageInfo.longVersionCode}",
       )
       dumpCrash()
     }

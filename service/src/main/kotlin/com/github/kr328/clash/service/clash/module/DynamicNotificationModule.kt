@@ -41,7 +41,7 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
           },
           pendingIntentFlags(PendingIntent.FLAG_UPDATE_CURRENT),
-        )
+        ),
       )
 
   private val notificationManager = NotificationManagerCompat.from(service)
@@ -58,7 +58,7 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
     val notification =
       builder
         .setContentText(
-          service.getString(R.string.tabby_notification_content, "$uploading/s", "$downloading/s")
+          service.getString(R.string.tabby_notification_content, "$uploading/s", "$downloading/s"),
         )
         .setSubText(service.getString(R.string.tabby_notification_content, uploaded, downloaded))
         .build()

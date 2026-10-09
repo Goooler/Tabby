@@ -81,14 +81,14 @@ internal class NewProfileViewModel(private val application: Application) : ViewM
           } catch (e: Exception) {
             Logger.e("Create QR profile failed: ${e.message}", e)
             eventState.tryEmit(
-              EventState.ShowMessage(e.message ?: getString(CommonRes.string.unknown))
+              EventState.ShowMessage(e.message ?: getString(CommonRes.string.unknown)),
             )
           }
         }
         QRUserCanceled -> Unit
         QRMissingPermission -> {
           eventState.tryEmit(
-            EventState.ShowMessage(getString(Res.string.import_from_qr_no_permission))
+            EventState.ShowMessage(getString(Res.string.import_from_qr_no_permission)),
           )
         }
         is QRError -> {

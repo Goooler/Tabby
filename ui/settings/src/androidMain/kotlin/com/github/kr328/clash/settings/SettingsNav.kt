@@ -46,7 +46,7 @@ fun EntryProviderScope<NavKey>.settingsEntries() {
           entry<AppSettings> { AppSettingsScreen() }
           entry<NetworkSettings> {
             NetworkSettingsScreen(
-              onStartAccessControlList = { backStack.addIfNotLast(AccessControl) }
+              onStartAccessControlList = { backStack.addIfNotLast(AccessControl) },
             )
           }
           entry<OverrideSettings> {

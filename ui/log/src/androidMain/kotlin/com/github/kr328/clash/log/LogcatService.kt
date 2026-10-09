@@ -145,7 +145,7 @@ internal class LogcatService :
       .createNotificationChannel(
         NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_DEFAULT)
           .setName(getString(Res.string.tabby_logcat))
-          .build()
+          .build(),
       )
   }
 
@@ -165,11 +165,11 @@ internal class LogcatService :
               setFlags(
                 Intent.FLAG_ACTIVITY_NEW_TASK or
                   Intent.FLAG_ACTIVITY_SINGLE_TOP or
-                  Intent.FLAG_ACTIVITY_CLEAR_TOP
+                  Intent.FLAG_ACTIVITY_CLEAR_TOP,
               )
             },
             pendingIntentFlags(PendingIntent.FLAG_UPDATE_CURRENT),
-          )
+          ),
         )
         .build()
 
