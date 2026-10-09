@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/dlclark/regexp2/v2 v2.8.4
 	github.com/metacubex/mihomo v1.19.32
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 )
 
 replace github.com/metacubex/mihomo => ../../foss/golang/clash
