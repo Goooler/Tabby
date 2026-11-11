@@ -1,0 +1,70 @@
+name: R8 rules order repro
+
+on:
+  push:
+    branches:
+      - r8-rules-order-repro
+
+jobs:
+  repro:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-ext4
+            os: ubuntu-latest
+          - name: linux-tmpfs
+            os: ubuntu-latest
+            tmpfs: true
+          - name: macos-apfs
+            os: macos-latest
+          - name: windows-ntfs
+            os: windows-latest
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: actions/setup-go@v7
+        with:
+          go-version: "1.27"
+          check-latest: true
+          cache: false
+      - uses: actions/setup-java@v6
+        with:
+          distribution: zulu
+          java-version: 25
+      - name: Put Gradle user home on tmpfs
+        if: matrix.tmpfs
+        run: |
+          mkdir -p "$HOME/gradle-tmpfs"
+          sudo mount -t tmpfs -o size=8g tmpfs "$HOME/gradle-tmpfs"
+          echo "GRADLE_USER_HOME=$HOME/gradle-tmpfs" >> "$GITHUB_ENV"
+      # A restored cache would carry the listing order of another run.
+      - uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-disabled: true
+      - run: ./gradlew --non-interactive --no-daemon :androidApp:minifyReleaseWithR8
+      - name: Report section order
+        run: |
+          gradle_home="${GRADLE_USER_HOME:-$HOME/.gradle}"
+          {
+            echo '```'
+            echo "Filesystem of $gradle_home:"
+            df -T "$gradle_home" 2>/dev/null || df "$gradle_home"
+            echo
+            echo 'Directory listing order:'
+            find "$gradle_home/caches" -type f -path '*/META-INF/com.android.tools/r8/kotlinx-serialization-*' | sed -E 's#.*/##'
+            echo
+            echo 'Sections in configuration.txt:'
+            grep 'section is .*kotlinx-serialization-core' androidApp/build/outputs/mapping/release/configuration.txt | sed -E 's#.*[\\/]##'
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: configuration-${{ matrix.name }}
+          path: androidApp/build/outputs/mapping/release/configuration.txt
